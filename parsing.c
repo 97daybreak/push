@@ -6,16 +6,16 @@
 /*   By: saelee <saelee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 19:10:33 by saelee            #+#    #+#             */
-/*   Updated: 2021/07/07 20:41:59 by saelee           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:06:31 by saelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_integers(int argc, char **argv)
+int check_integers(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 1;
 	while (i < argc)
@@ -25,7 +25,7 @@ int		check_integers(int argc, char **argv)
 		{
 			if (!ft_isdigit(argv[i][j]))
 			{
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				exit(0);
 			}
 			else
@@ -36,10 +36,10 @@ int		check_integers(int argc, char **argv)
 	return (1);
 }
 
-void	double_checker(t_stack *stack)
+void double_checker(t_stack *stack)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (i < stack->args - 1)
@@ -49,7 +49,7 @@ void	double_checker(t_stack *stack)
 		{
 			if (stack->a[i] == stack->a[j])
 			{
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				free(stack->a);
 				free(stack->b);
 				exit(1);
@@ -61,10 +61,10 @@ void	double_checker(t_stack *stack)
 	}
 }
 
-int		ft_space(char **argv, int i)
+int ft_space(char **argv, int i)
 {
-	int	y;
-	int	size;
+	int y;
+	int size;
 
 	y = 0;
 	size = 0;
@@ -89,12 +89,12 @@ int		ft_space(char **argv, int i)
 	return (size + 1);
 }
 
-void	ft_change(int argc, char **argv, t_stack *stack)
+void ft_change(int argc, char **argv, t_stack *stack)
 {
-	int	i;
-	int	j;
-	int	y;
-	int	x;
+	int i;
+	int j;
+	int y;
+	int x;
 
 	i = 1;
 	j = 0;
@@ -116,9 +116,9 @@ void	ft_change(int argc, char **argv, t_stack *stack)
 	}
 }
 
-int		arg_count(char **argv, t_stack *stack)
+int arg_count(char **argv, t_stack *stack)
 {
-	int	i;
+	int i;
 
 	i = 1;
 	stack->args = 0;

@@ -6,15 +6,15 @@
 /*   By: saelee <saelee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 19:10:13 by saelee            #+#    #+#             */
-/*   Updated: 2021/07/07 20:45:28 by saelee           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:06:33 by saelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_while(char **line, char buffer[], int i)
+void ft_while(char **line, char buffer[], int i)
 {
-	int	j;
+	int j;
 
 	j = 0;
 	while (j < i)
@@ -26,11 +26,11 @@ void	ft_while(char **line, char buffer[], int i)
 	(*line)[j] = 0;
 }
 
-int		get_next_line(char **line)
+int get_next_line(char **line)
 {
-	int		i;
-	int		red;
-	char	buffer[1024 * 1024];
+	int i;
+	int red;
+	char buffer[1024 * 1024];
 
 	i = 0;
 	red = read(0, &buffer[i], 1);
@@ -54,7 +54,7 @@ int		get_next_line(char **line)
 	return (-1);
 }
 
-int		are_command(t_stack *stack, char *line)
+int are_command(t_stack *stack, char *line)
 {
 	if (line[0] == 'p' && line[1] == 'a' && !line[2])
 		push_a(stack);
@@ -83,13 +83,13 @@ int		are_command(t_stack *stack, char *line)
 	return (1);
 }
 
-void	take_commands(t_stack *stack, char *line)
+void take_commands(t_stack *stack, char *line)
 {
 	while (get_next_line(&line) > 0)
 	{
 		if (!(are_command(stack, line)))
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			free(line);
 			free(stack->a);
 			free(stack->b);
@@ -102,10 +102,10 @@ void	take_commands(t_stack *stack, char *line)
 	line = NULL;
 }
 
-int		main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_stack	stack;
-	char	*line;
+	t_stack stack;
+	char *line;
 
 	line = NULL;
 	check_integers(argc, argv);

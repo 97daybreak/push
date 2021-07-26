@@ -6,15 +6,15 @@
 /*   By: saelee <saelee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 19:10:25 by saelee            #+#    #+#             */
-/*   Updated: 2021/07/07 20:43:19 by saelee           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:06:28 by saelee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		is_decrescent(t_stack *stack)
+int is_decrescent(t_stack *stack)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (stack->b_size == 0)
@@ -24,7 +24,7 @@ int		is_decrescent(t_stack *stack)
 			if (stack->a[i] > stack->a[i + 1])
 				i++;
 			else
-				break ;
+				break;
 		}
 		if (i == (stack->a_size - 1))
 			return (1);
@@ -33,9 +33,9 @@ int		is_decrescent(t_stack *stack)
 	return (0);
 }
 
-void	*ft_calloc(size_t size, size_t num)
+void *ft_calloc(size_t size, size_t num)
 {
-	void	*a;
+	void *a;
 
 	a = malloc(size * num);
 	if (a)
@@ -43,9 +43,9 @@ void	*ft_calloc(size_t size, size_t num)
 	return (a);
 }
 
-void	*ft_bzero(void *str, size_t len)
+void *ft_bzero(void *str, size_t len)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (i < len)
@@ -56,11 +56,11 @@ void	*ft_bzero(void *str, size_t len)
 	return (0);
 }
 
-int		check(long long x, t_stack *stack)
+int check(long long x, t_stack *stack)
 {
 	if (x < -2147483648 || x > 2147483647)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		free(stack->a);
 		free(stack->b);
 		exit(0);
@@ -68,17 +68,16 @@ int		check(long long x, t_stack *stack)
 	return (x);
 }
 
-int		ft_atoi(const char *str, t_stack *stack)
+int ft_atoi(const char *str, t_stack *stack)
 {
-	int			i;
-	long long	result;
-	int			sign;
+	int i;
+	long long result;
+	int sign;
 
 	i = 0;
 	result = 0;
 	sign = 1;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\r'
-		|| str[i] == ' ' || str[i] == '\f')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' || str[i] == '\r' || str[i] == ' ' || str[i] == '\f')
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
